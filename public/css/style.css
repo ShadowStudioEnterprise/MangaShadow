@@ -1,0 +1,29 @@
+.topbar{
+    background-color: black;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+}
+a.title:link, a.title:visited,a.title:active{
+    text-decoration-line: none;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+.body{
+    padding: 50px 100px 0px 100px;
+}
+
+
+div.element{
+    width: 300px;
+    height: 300px;
+}
+h3.element{
+    top: 0%;
+    color: white;
+}
+span.element{
+    top: 90%;
+    color: white;
+}

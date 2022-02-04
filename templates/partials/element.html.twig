@@ -1,4 +1,10 @@
-<div>
-  <img src="">
-  <p></p>
+{% for manga in mangas %}
+<div class="element {{ manga.id }}">
+    <style>
+        .{{ manga.id }}{ background-image: url( {{ manga.portfolio }} );} 
+    </style>
+  <h3>{{ manga.titulo }}</h3>
+
+  <span>{{ manga.tipo }}</span>
 </div>
+{{ endfor }}

@@ -47,6 +47,11 @@ class Manga
      */
     private $puntuacion;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $portada;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +125,18 @@ class Manga
     public function setPuntuacion(int $puntuacion): self
     {
         $this->puntuacion = $puntuacion;
+
+        return $this;
+    }
+
+    public function getPortada(): ?string
+    {
+        return $this->portada;
+    }
+
+    public function setPortada(string $portada): self
+    {
+        $this->portada = $portada;
 
         return $this;
     }
