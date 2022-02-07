@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Manga;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -20,10 +23,28 @@ class BibliotecaController extends AbstractController
     /**
      * @Route("/biblioteca/upload", name="upload_biblioteca")
      */
-    public function upload(): Response
+    public function upload(ManagerRegistry $doctrine, Request $request): Response
     {
-        return $this->render('biblioteca/biblioteca.html.twig', [
-            'controller_name' => 'BibliotecaController',
+        $manga= new Manga();
+        $formulario= $this->createForm(ContactoType::class, $manga);
+
+        $formulario->handleRequest($request);
+    
+        if ($formulario->isSubmitted() && $formulario->isValid()) {
+    
+            $manga = $formulario->getData();
+    
+            $entityManager = $doctrine->getManager();
+    
+            $entityManager->persist($manga);
+    
+            $entityManager->flush();
+    
+            return $this->redirectToRoute('home', ["codigo" => $manga->getId()]);
+    
+        }
+        return $this->render('biblioteca/upload.html.twig', [
+            'form' => $formulario->createView()
         ]);
     }
     /**

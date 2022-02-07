@@ -3,5 +3,18 @@
 {% block title %}Upload{% endblock %}
 
 {% block body %}
+    {{ form_start(form) }}
+    <div class="">
+        {{ form_errors(form) }}
+    </div>
 
+    <div class="row">
+        <div class="col">
+            {{ form_row(form.task) }}
+        </div>
+        <div class="col" id="">
+            {{ form_row(form.dueDate) }}
+        </div>
+    </div>
+{{ form_end(form) }}
 {% endblock %}
