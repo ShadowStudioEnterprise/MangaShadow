@@ -27,3 +27,59 @@ span.element{
     top: 90%;
     color: white;
 }
+.darkMode{
+    background-color: darkgrey;
+    color: white;
+}
+
+ul.menuC {
+    float:left;
+    display:block;
+    margin-top: 38px;
+    list-style-type:none;
+    }
+    .menuC li {
+    line-height:18px;
+    font-size:13px;
+    position:relative;
+    float:left;
+    }
+    .menuC li a {
+    color: #000;
+    text-transform:uppercase;
+    padding: 5px 20px;
+    text-decoration:none;
+    }
+    .menuC li a:hover {
+    background: black;
+    color: white;
+    }
+    .menuC li ul {
+    display:none;
+    position:absolute;
+    top:20px;
+    width: 240px;
+    background-color: #f4f4f4;
+    padding:0;
+    list-style-type:none;
+    }
+    .menuC li ul li {
+    width: 200px;
+    border: 1px solid black;
+    border-top:none;
+    padding: 10px 20px;
+    }
+    .menuC li ul li:first-child {
+    border-top: 1px solid black;
+    }
+   .menuC li ul li a {
+    width: 240px;
+    margin: 0;
+    padding:0;
+    }
+   .menuC li ul li a:hover {
+    width: 240px;
+    margin: 0;
+    color: black;
+    background:none;
+    }

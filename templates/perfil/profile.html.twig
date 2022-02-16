@@ -3,16 +3,26 @@
 {% block title %}Perfil{% endblock %}
 
 {% block body %}
-<img src="">
-<h1></h1>
-<h2></h2>
-<h3></h3>
+
+<div>
+    {% if user.imagenPerfil|default %}
+        <img src="{{user.imagenPerfil}}">
+    {% else %}
+        <img src="/img/shadowUser.png">
+    {% endif %}
+    <div>
+        <h1>{{ user.nombre }}</h1>
+        <h2>{{ user.email }}</h2>
+        <h3>{{ user.paginaWeb }} </h3>
+    </div>
+</div>
 <!-- Listas -->
+<!--
 <div>
     <h2>Listas</h2>
-</div>
+</div> -->
 <!-- Favoritos -->
-<div>
+<!-- <div>
     <h2>Favoritos</h2>
-</div>
+</div> -->
 {% endblock %}

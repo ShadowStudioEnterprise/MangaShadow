@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Biblioteca{% endblock %}
+
+{% block body %}
+<div class="capituloMenu">
+    <a href="{{ path('manga_biblioteca', { titulo: capitulo.mangaId.id}) }}"><i class="fa fa-angle-up"></i></a>
+    <h5>{{capitulo.mangaId.titulo}} : {{ capitulo.numero }}</h5>
+    <ul class="menuC">
+        <li><a href="#">Modo de lectura</a>
+        <ul>
+            <li><a id="paginada" href="#">Vista Paginada</a></li>
+            <li><a id="cascada" href="#">Vista Cascada</a></li>
+        </ul>
+    </ul>
+</div>
+<div class="imagenesC">
+{% for imagen in imagenes %}
+<div>
+    <img src="{{imagen}}">
+</div>
+{% endfor %}
+</div>
+<script src="/JS/slick-master/slick/slick.js"></script>
+<script src="/JS/capitulos.js"></script>
+{% endblock %}

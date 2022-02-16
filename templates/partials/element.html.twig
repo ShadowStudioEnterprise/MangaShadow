@@ -1,10 +1,12 @@
 {% for manga in mangas %}
 <div class="element {{ manga.id }}">
     <style>
-        .{{ manga.id }}{ background-image: url( {{ manga.portfolio }} );} 
+        .{{ manga.id }}{ background-image: url( {{ manga.portada }} );} 
     </style>
+    <a href="{{ path('manga_biblioteca', { titulo: manga.id})}}">
   <h3>{{ manga.titulo }}</h3>
 
   <span>{{ manga.tipo }}</span>
+  </a>
 </div>
-{{ endfor }}
+{% endfor %}

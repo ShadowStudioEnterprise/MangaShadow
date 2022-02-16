@@ -3,6 +3,21 @@
 {% block title %}Upload{% endblock %}
 
 {% block body %}
+{{ form_start(form) }}
+    <div class="form_error">
+        {{ form_errors(form) }}
+    </div>
 
+    <div class="row">
+        <div class="col">
+            {{ form_rest(form) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+           
+        </div>
+    </div>
+{{ form_end(form) }}
 
 {% endblock %}

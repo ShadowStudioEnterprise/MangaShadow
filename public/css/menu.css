@@ -222,6 +222,10 @@ input#menu[type="checkbox"] {
 		transform: translate3d(200px, 0, 0);
     transition: transform .45s cubic-bezier(0.77, 0, 0.175, 1);
 }
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
+}
 
 	/* label.hamburger {
 		display: none;

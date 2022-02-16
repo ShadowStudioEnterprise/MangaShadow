@@ -4,21 +4,27 @@
 
 {% block body %}
 
-<div class="">
-    <img>
-    <h1></h1>
-    <h2></h2>
-    <h3></h3>
-    <h3></h3>
-    <p></p>
+<div class="mangaInfo">
+    <img src="{{ manga.portada}}">
+    <div>
+        <h1>{{ manga.titulo }}</h1>
+        <h2>{{ manga.autor }}</h2>
+        <h3>{{ manga.tipo }}</h3>
+        <h3>{{ manga.genero }}</h3>
+        <p>{{ manga.descripcion }}</p>
+    </div>
 </div>
-<div class="">
+<ul class="">
+     <li><a href="{{ path('upload_biblioteca_manga', { id: manga.id})}}">Subir Capitulo <span class="icon"><i class="fa fa-upload"></i></span></a></li>
+</ul>
+<div class="capitulos">
+<h1>Capitulos</h1>
     {% for capitulo in capitulos %}
     <div>
-        <h4></h4>
-        <h5></h5>
-        <h5></h5>
-        <button><img></button>
+        <h4>{{ capitulo.numero }}</h4>
+        <h5>{{ capitulo.uploader }}</h5>
+        <h5>{{ capitulo.fechaSubida|date('Y-m-d H:i') }}</h5>
+        <a href="{{ path('capitulo_manga_biblioteca', { titulo: manga.id, capitulo:capitulo.id })}}"><i class="fa fa-angle-right"></i></a>
     </div>
     {% endfor %}
 </div>

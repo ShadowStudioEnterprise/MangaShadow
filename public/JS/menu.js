@@ -3,7 +3,9 @@ $( document ).ready(function() {
         e.preventDefault();
         $("html").toggleClass("openNav");
         $(".nav-toggle").toggleClass("active");
-    });    
+    });
+    $('.darkModeButton').click(function(e) {
+        e.preventDefault();
+        $("body").toggleClass("darkMode");
+    });
 });
-
-    

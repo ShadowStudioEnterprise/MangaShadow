@@ -7,16 +7,21 @@
     <!-- Tendencias 8 e-->
     <div class"row" id="trend">
     <h2 class="titleSection">Tendencias</h2>
-        
+        {{ include ("/partials/element.html.twig") }}
     </div>
     <!-- Siguiendo-->
     <div class"row" id="follow">
     <h2 class="titleSection">Siguiendo</h2>
-
+    {% if is_granted('ROLE_USER') %}
+        {{ include ("/partials/element.html.twig") }}
+    {% else %}
+        <a href="{{ path('login') }}">Iniciar sesión</a>
+    {% endif %}
     </div>
     <!-- Novedades 8 e-->
     <div class"row" id="news">
-    <h2 class="titleSection">Novedades</h2>    
+    <h2 class="titleSection">Novedades</h2>
+        {{ include ("/partials/element.html.twig") }}    
     </div>
     <!-- Aside-->
     <div id="aside">

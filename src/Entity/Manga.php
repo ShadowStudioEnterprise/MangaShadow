@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MangaRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -43,7 +45,7 @@ class Manga
     private $genero;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $puntuacion;
 
@@ -51,6 +53,16 @@ class Manga
      * @ORM\Column(type="string", length=255)
      */
     private $portada;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Capitulos::class, mappedBy="mangaId", orphanRemoval=true)
+     */
+    private $Capitulos;
+
+    public function __construct()
+    {
+        $this->Capitulos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -137,6 +149,36 @@ class Manga
     public function setPortada(string $portada): self
     {
         $this->portada = $portada;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Capitulos[]
+     */
+    public function getCapitulos(): Collection
+    {
+        return $this->Capitulos;
+    }
+
+    public function addCapitulo(Capitulos $capitulo): self
+    {
+        if (!$this->Capitulos->contains($capitulo)) {
+            $this->Capitulos[] = $capitulo;
+            $capitulo->setMangaId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCapitulo(Capitulos $capitulo): self
+    {
+        if ($this->Capitulos->removeElement($capitulo)) {
+            // set the owning side to null (unless already changed)
+            if ($capitulo->getMangaId() === $this) {
+                $capitulo->setMangaId(null);
+            }
+        }
 
         return $this;
     }

@@ -13,8 +13,11 @@ class PerfilController extends AbstractController
      */
     public function index(): Response
     {
+        /** @var \App\Entity\User $user */
+        $user = $this->getUser();
+
         return $this->render('perfil/profile.html.twig', [
-            'controller_name' => 'PerfilController',
+            'user' => $user
         ]);
     }
 }
