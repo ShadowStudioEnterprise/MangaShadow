@@ -1,12 +1,11 @@
 {% for manga in mangas %}
-<div class="element {{ manga.id }}">
-    <style>
-        .{{ manga.id }}{ background-image: url( {{ manga.portada }} );} 
-    </style>
-    <a href="{{ path('manga_biblioteca', { titulo: manga.id})}}">
-  <h3>{{ manga.titulo }}</h3>
-
-  <span>{{ manga.tipo }}</span>
+<div >
+    <a class="element" href="{{ path('manga_biblioteca', { titulo: manga.id})}}">
+    <div class="element"  style=" background-image: url(' {{ asset( manga.portada )}} '); ">
+      <h3>{{ manga.titulo }}</h3>
+      <span class="bottomElement">{{ manga.tipo }}</span>
+    </div>
   </a>
+
 </div>
 {% endfor %}

@@ -14,10 +14,14 @@ a.title:link, a.title:visited,a.title:active{
     padding: 50px 100px 0px 100px;
 }
 
-
+a.element{
+    text-decoration-line: none;
+    color: black;
+}
 div.element{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 350px;
+    border: 1px solid black;
 }
 h3.element{
     top: 0%;
@@ -27,26 +31,97 @@ span.element{
     top: 90%;
     color: white;
 }
+
 .darkMode{
     background-color: darkgrey;
     color: white;
 }
 
+.bottomElement{
+    position: absolute;
+    bottom: 1%;
+}
+.mangaInfo{
+    display: flex;
+}
+.info{
+    margin-left: 10%;
+}
+
+.puntuacion{
+    display: flex;
+}
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type:none;
+    padding:0;
+    
+    /*-moz-user-select:none;
+    -webkit-user-select:none;*/
+  }
+  .rating-stars ul > li.star {
+    display:inline-block;
+    
+  }
+  
+  /* Idle State of the stars */
+  .rating-stars ul > li.star > i.fa {
+    font-size:2.5em; /* Change the size of the stars */
+    color:#ccc; /* Color on idle state */
+  }
+  
+  /* Hover state of the stars */
+  .rating-stars ul > li.star.hover > i.fa {
+    color:#FFCC36;
+  }
+  
+  /* Selected state of the stars */
+  .rating-stars ul > li.star.selected > i.fa {
+    color:#FF912C;
+  }
+
+.capituloElement{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+}
+
+.capituloMenu{
+    background-color: gray;
+    display: flex;
+    border: 1px solid black;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
+}
+.first{
+    margin-left: 2%;
+}
+.last{
+    margin-right: 2%;
+}
+.icons{
+    color: #000; 
+}
+h5.capituloMenu{
+    font-size: 19px;
+}
 ul.menuC {
     float:left;
     display:block;
-    margin-top: 38px;
     list-style-type:none;
     }
     .menuC li {
     line-height:18px;
-    font-size:13px;
+    font-size:19px;
     position:relative;
     float:left;
     }
     .menuC li a {
+            
     color: #000;
-    text-transform:uppercase;
     padding: 5px 20px;
     text-decoration:none;
     }
@@ -57,7 +132,6 @@ ul.menuC {
     .menuC li ul {
     display:none;
     position:absolute;
-    top:20px;
     width: 240px;
     background-color: #f4f4f4;
     padding:0;
@@ -83,3 +157,4 @@ ul.menuC {
     color: black;
     background:none;
     }
+    

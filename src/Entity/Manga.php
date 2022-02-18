@@ -59,6 +59,11 @@ class Manga
      */
     private $Capitulos;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $votos;
+
     public function __construct()
     {
         $this->Capitulos = new ArrayCollection();
@@ -179,6 +184,18 @@ class Manga
                 $capitulo->setMangaId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getVotos(): ?int
+    {
+        return $this->votos;
+    }
+
+    public function setVotos(?int $votos): self
+    {
+        $this->votos = $votos;
 
         return $this;
     }

@@ -6,10 +6,11 @@ $( document ).ready(function() {
     function(e) {
         $(this).find('ul').css({display: "none"});
     });
-
+    $("#vista").click(function(e){
+        e.preventDefault();
+    });
     $("#paginada").click(function(e){
         e.preventDefault();
-        $(".imagenesC").toggleClass("slider");
         $('.slider').slick({// Enables tabbing and arrow key navigation
             accessibility: true,
           
@@ -160,7 +161,7 @@ $( document ).ready(function() {
     });
     $("#cascada").click(function(e){
         e.preventDefault();
-        $('slider').unslick();
+        $('.slider').slick("unslick");
     });
 });
  
