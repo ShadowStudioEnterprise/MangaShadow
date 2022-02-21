@@ -17,7 +17,7 @@
                 <input type="checkbox" class="sub-menu-checkbox" id="settings" />
                 <ul class="sub-menu-dropdown">
                     {% if is_granted('ROLE_USER') %}
-                        <li><a href="{{ '/perfil' }}">Profile</a></li>
+                        <li><a href="{{ '/perfil' }}">Perfil</a></li>
                         <li><a href="{{ path('upload_biblioteca') }}">Subir Manga</a></li>
                         <li><a href="{{ path('app_logout') }}">Desconectar</a><li> 
                     {% else %}
