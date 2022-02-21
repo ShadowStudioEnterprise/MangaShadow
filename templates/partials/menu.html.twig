@@ -3,7 +3,7 @@
         <span class="screen-reader-text">Menu</span>
     </button>
   	<nav role="navigation" class="menu">
-  		<a href="#" class="logotype">LOGO<span>TYPE</span></a>
+  		<a href="{{ '/' }}" class="logotype"><img src="/img/mangaShadowLogoIco.png" alt="Manga Shadow Logo"></a>
   		<div class="overflow-container">
   			<ul class="menu-dropdown">
   				<li><a href="{{ '/' }}">Home</a><span class="icon"><i class="fa fa-home"></i></span></li>
@@ -18,7 +18,7 @@
                 <ul class="sub-menu-dropdown">
                     {% if is_granted('ROLE_USER') %}
                         <li><a href="{{ '/perfil' }}">Profile</a></li>
-                        <li><a href="{{ '/upload' }}">Subir Manga</a></li>
+                        <li><a href="{{ path('upload_biblioteca') }}">Subir Manga</a></li>
                         <li><a href="{{ path('app_logout') }}">Desconectar</a><li> 
                     {% else %}
                         <li><a href="{{ path('login') }}">Iniciar sesión</a></li> 

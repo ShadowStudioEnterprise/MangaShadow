@@ -33,6 +33,10 @@ class BibliotecaController extends AbstractController
      */
     public function upload(ManagerRegistry $doctrine, Request $request): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            throw $this->createAccessDeniedException('No access for you!');
+        }
+
         $manga= new Manga();
         $formulario= $this->createForm(UploadType::class, $manga)
             ->add('submit', SubmitType::class, ['label' => 'Crear Manga']);
@@ -42,6 +46,10 @@ class BibliotecaController extends AbstractController
         if ($formulario->isSubmitted() && $formulario->isValid()) {
     
             $manga = $formulario->getData();
+
+            $manga->setPuntuacion(0);
+
+            $manga->setVotos(0);
     
             $entityManager = $doctrine->getManager();
     
@@ -49,7 +57,7 @@ class BibliotecaController extends AbstractController
     
             $entityManager->flush();
     
-            return $this->redirectToRoute('biblioteca', ["codigo" => $manga->getId()]);
+            return $this->redirectToRoute('biblioteca');
     
         }
         return $this->render('biblioteca/upload.html.twig', [
@@ -61,6 +69,9 @@ class BibliotecaController extends AbstractController
      */
     public function uploadM(ManagerRegistry $doctrine, Request $request, $id): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            throw $this->createAccessDeniedException('No access for you!');
+        }
         $capitulos= new Capitulos();
         $formulario= $this->createForm(CapitulosUploadType::class, $capitulos)
             ->add('submit', SubmitType::class, ['label' => 'Subir Capitulo']);
@@ -77,7 +88,7 @@ class BibliotecaController extends AbstractController
     
             $entityManager->flush();
     
-            return $this->redirectToRoute('biblioteca', ["nombre" => $capitulos->getId()]);
+            return $this->redirectToRoute('biblioteca');
     
         }
         return $this->render('biblioteca/uploadC.html.twig', [
@@ -97,6 +108,31 @@ class BibliotecaController extends AbstractController
         ]); 
     }
     /**
+     * @Route("/biblioteca/{titulo}/star/{vote}", name="votar_manga_biblioteca")
+     */
+    public function votar(ManagerRegistry $doctrine,$titulo,$vote): Response
+    {
+        $repositorio =$doctrine->getRepository(Manga::class);
+        $entityManager = $doctrine->getManager();
+        $manga= $repositorio->find($titulo);
+        if($manga){
+            if(is_numeric($vote)){
+                if($vote>=0 &&$vote<=5){
+                    $manga->setPuntuacion($manga->getPuntuacion()+$vote);
+                    $votos=$manga->getVotos()+1;
+                    $manga->setVotos($votos);
+                    $entityManager->flush();
+                    return new Response("Hecho");
+                }else
+                    return new Response("Error");
+            }else{
+                return new Response("Error");
+            }
+        
+        }else
+            return new Response("Error");
+    }
+    /**
      * @Route("/biblioteca/{titulo}/{capitulo}", name="capitulo_manga_biblioteca")
      */
     public function capitulo(ManagerRegistry $doctrine,$titulo,$capitulo): Response
@@ -110,7 +146,6 @@ class BibliotecaController extends AbstractController
                 $cap=$capituloE;
             }
         }
-        
         $imagenes=json_decode($cap->getImagenes());
         return $this->render('biblioteca/capitulos.html.twig', [
             'capitulo' => $cap, 'imagenes'=> $imagenes

@@ -4,25 +4,31 @@
 
 {% block body %}
 
-<div>
+<div class="perfil">
     {% if user.imagenPerfil|default %}
-        <img src="{{user.imagenPerfil}}">
+        <img  class="imgPerfil" src="{{user.imagenPerfil}}">
     {% else %}
-        <img src="/img/shadowUser.png">
+        <img class="imgPerfil" src="/img/mangaShadowLogo.png">
     {% endif %}
     <div>
         <h1>{{ user.nombre }}</h1>
-        <h2>{{ user.email }}</h2>
-        <h3>{{ user.paginaWeb }} </h3>
+        Email: <h2>{{ user.email }}</h2>
+        Sitio web: <h3>{{ user.paginaWeb }} </h3>
     </div>
 </div>
 <!-- Listas -->
-<!--
+
 <div>
     <h2>Listas</h2>
-</div> -->
+    <p class="mensajeSiguiendo">
+                    Estamos trabajando en la construcción de esta sección.
+                </p>
+</div> 
 <!-- Favoritos -->
-<!-- <div>
+<div>
     <h2>Favoritos</h2>
-</div> -->
+    <p class="mensajeSiguiendo">
+                    Estamos trabajando en la construcción de esta sección.
+                </p>
+</div> 
 {% endblock %}

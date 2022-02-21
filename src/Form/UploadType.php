@@ -6,6 +6,7 @@ use App\Entity\Manga;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class UploadType extends AbstractType
 {
@@ -14,10 +15,11 @@ class UploadType extends AbstractType
         $builder
             ->add('titulo')
             ->add('autor')
-            ->add('descripcion')
             ->add('tipo')
             ->add('genero')
             ->add('portada')
+            ->add('descripcion',TextareaType::class, [
+                'attr' => array('cols' => '1', 'rows' => '1')])
         ;
     }
 

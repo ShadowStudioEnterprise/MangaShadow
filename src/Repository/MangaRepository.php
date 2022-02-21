@@ -19,6 +19,21 @@ class MangaRepository extends ServiceEntityRepository
         parent::__construct($registry, Manga::class);
     }
 
+/**
+     * @return Manga[]
+     */
+    public function findAllByVotes(): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT m
+            FROM App\Entity\Manga m
+            ORDER BY m.votos DESC, m.puntuacion DESC'
+        );
+        return $query->execute();
+    }
+
     // /**
     //  * @return Manga[] Returns an array of Manga objects
     //  */

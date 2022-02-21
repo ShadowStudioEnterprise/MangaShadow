@@ -13,6 +13,9 @@ class PerfilController extends AbstractController
      */
     public function index(): Response
     {
+        if (!$this->isGranted('ROLE_USER')) {
+            throw $this->createAccessDeniedException('No access for you!');
+        }
         /** @var \App\Entity\User $user */
         $user = $this->getUser();
 

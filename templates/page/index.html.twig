@@ -5,27 +5,31 @@
 {% block body %}
 <div class="container">
     <!-- Tendencias 8 e-->
-    <div class"row" id="trend">
-    <h2 class="titleSection">Tendencias</h2>
-        {{ include ("/partials/element.html.twig") }}
+    <div class="row" id="trend">
+        <div class="col">
+            <h2 class="titleSection">Tendencias</h2>
+                {{ include ("/partials/element.html.twig") }}
+        </div>
     </div>
     <!-- Siguiendo-->
     <div class"row" id="follow">
-    <h2 class="titleSection">Siguiendo</h2>
-    {% if is_granted('ROLE_USER') %}
-        {{ include ("/partials/element.html.twig") }}
-    {% else %}
-        <a href="{{ path('login') }}">Iniciar sesión</a>
-    {% endif %}
+        <div class="col">
+            <h2 class="titleSection">Siguiendo</h2>
+                {% if is_granted('ROLE_USER') %}
+                <!-- {{ include ("/partials/element.html.twig") }} -->
+                <p class="mensajeSiguiendo">
+                    Estamos trabajando en la construcción de esta sección.
+                </p>
+                {% else %}
+                  <P class="mensajeSiguiendo"> 
+                   Para ver tus mangas favoritos, <a href="{{ path('login') }}">Inicia sesión</a>. ¡Es grátis! </p>
+        </div>
+        {% endif %}
     </div>
     <!-- Novedades 8 e-->
     <div class"row" id="news">
-    <h2 class="titleSection">Novedades</h2>
-        {{ include ("/partials/element.html.twig") }}    
-    </div>
-    <!-- Aside-->
-    <div id="aside">
-        
+        <h2 class="titleSection">Novedades</h2>
+        {{ include ("/partials/element.html.twig", {'mangas': novedades}) }}    
     </div>
 </div>
 {% endblock %}

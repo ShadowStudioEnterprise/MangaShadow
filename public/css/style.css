@@ -1,3 +1,7 @@
+html, body {
+    height: 100%;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+  }
 .topbar{
     background-color: black;
     overflow: hidden;
@@ -12,41 +16,144 @@ a.title:link, a.title:visited,a.title:active{
 }
 .body{
     padding: 50px 100px 0px 100px;
+    min-height: 100%;
+}
+#news{
+    margin-bottom: 24px;
+}
+.titleSection{
+    font-size: 32px;
+    font-weight: bold;
+    padding: 24px;
+}
+a.element{
+    text-decoration-line: none;
+    color: black;
 }
 
-
 div.element{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 350px;
+    border: 1px solid black;
+    margin: 12px 0px;
 }
 h3.element{
     top: 0%;
     color: white;
+    background-color: grey;
+    text-align: center;
 }
 span.element{
     top: 90%;
     color: white;
 }
+
 .darkMode{
     background-color: darkgrey;
     color: white;
 }
 
+.bottomElement{
+    position: absolute;
+    bottom: 1%;
+    background-color: grey;
+    text-align: center;
+}
+.mensajeSiguiendo{
+    text-align: center;
+}
+.mangaInfo{
+    display: flex;
+}
+.info{
+    margin-left: 10%;
+}
+
+.puntuacion{
+    display: flex;
+    margin: 24px 0px;
+}
+
+/* Rating Star Widgets Style */
+.rating-stars ul {
+    list-style-type:none;
+    padding:0;
+    
+    /*-moz-user-select:none;
+    -webkit-user-select:none;*/
+  }
+  .rating-stars ul > li.star {
+    display:inline-block;
+    
+  }
+  
+  /* Idle State of the stars */
+  .rating-stars ul > li.star > i.fa {
+    font-size:2.5em; /* Change the size of the stars */
+    color:#ccc; /* Color on idle state */
+  }
+  
+  /* Hover state of the stars */
+  .rating-stars ul > li.star.hover > i.fa {
+    color:#FFCC36;
+  }
+  
+  /* Selected state of the stars */
+  .rating-stars ul > li.star.selected > i.fa {
+    color:#FF912C;
+  }
+
+.uploadCapitulo{
+    margin: 24px 0px;
+}
+h1.capitulos{
+    margin-bottom: 24px;
+}
+.capituloElement{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-between;
+    padding: 12px 0px;
+}
+
+.capituloMenu{
+    margin: 0px 0px 36px 0px;
+    background-color: #57467B;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+.first{
+    margin-left: 2%;
+}
+.last{
+    margin-right: 2%;
+}
+.icons{
+    color: #000; 
+}
+h5.capituloMenu{
+    font-size: 19px;
+}
+#vista{
+    color: white;
+}
 ul.menuC {
     float:left;
     display:block;
-    margin-top: 38px;
     list-style-type:none;
     }
     .menuC li {
     line-height:18px;
-    font-size:13px;
+    font-size:19px;
     position:relative;
     float:left;
     }
     .menuC li a {
+            
     color: #000;
-    text-transform:uppercase;
     padding: 5px 20px;
     text-decoration:none;
     }
@@ -57,8 +164,7 @@ ul.menuC {
     .menuC li ul {
     display:none;
     position:absolute;
-    top:20px;
-    width: 240px;
+    width: 200px;
     background-color: #f4f4f4;
     padding:0;
     list-style-type:none;
@@ -73,13 +179,37 @@ ul.menuC {
     border-top: 1px solid black;
     }
    .menuC li ul li a {
-    width: 240px;
+    width: 200px;
     margin: 0;
     padding:0;
     }
    .menuC li ul li a:hover {
-    width: 240px;
+    width: 200px;
     margin: 0;
     color: black;
     background:none;
     }
+.imagenesC{
+    text-align: center;
+}
+.btn{
+    color: #fff;
+    background-color: #000;
+}
+.imagenCapitulo{
+    width: 100%;
+    margin: 12px 0px;
+}
+.perfil{
+    display: flex;
+}
+.imgPerfil{
+    width: 400px;
+    height: 400px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+footer{
+    bottom:0;
+    width: 100%;
+}

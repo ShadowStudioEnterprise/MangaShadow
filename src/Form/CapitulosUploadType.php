@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class CapitulosUploadType extends AbstractType
 {
@@ -19,7 +20,8 @@ class CapitulosUploadType extends AbstractType
             ->add('mangaId', EntityType::class, array(
                 'class' => Manga::class,
                 'choice_label' => 'titulo',))
-            ->add('imagenes')
+            ->add('imagenes',TextareaType::class, [
+                'attr' => array('cols' => '1', 'rows' => '1')])
         ;
     }
 
