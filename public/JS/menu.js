@@ -12,9 +12,9 @@ $( document ).ready(function() {
         e.preventDefault();
         
         if($.cookie('darkMode') === 'on')
-            $.cookie('darkMode', 'off');
+            $.cookie('darkMode', 'off',{path: '/'});
         else
-            $.cookie('darkMode', 'on');
+            $.cookie('darkMode', 'on',{path: '/'});
         $("body").toggleClass("darkMode");
     });
 });
