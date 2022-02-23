@@ -7,31 +7,31 @@
         <meta name="distribution" content="global"/>
         <meta name="Keywords" content="biblioteca,visor,manga,manhua,manhwa,español"/>
         <title>{% block title %}Manga Shadow{% endblock %}</title>
-        <link rel="icon" href="/img/logo.png">
+        <link rel="icon" href="/public/img/logo.png">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-            <link rel="stylesheet" href="/css/resetstyle.css">
+            <link rel="stylesheet" href="/public/css/resetstyle.css">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-            <link rel="stylesheet" href="/css/menu.css">
-            <link rel="stylesheet" href="/css/style.css">
-            <link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
-            <link rel="stylesheet" href="/JS/slick-master/slick/slick.css">
-            <link rel="stylesheet" href="/JS/slick-master/slick/slick-theme.css">
+            <link rel="stylesheet" href="/public/css/menu.css">
+            <link rel="stylesheet" href="/public/css/style.css">
+            <link rel="stylesheet" href="/public/css/font-awesome/css/font-awesome.min.css">
+            <link rel="stylesheet" href="/public/JS/slick-master/slick/slick.css">
+            <link rel="stylesheet" href="/public/JS/slick-master/slick/slick-theme.css">
         {% endblock %}
 
         {% block javascripts %}
             <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
             {# https://github.com/carhartl/jquery-cookie #}
-            <script src="/JS/jquery-cookie-master/src/jquery.cookie.js"></script
+            <script src="/public/JS/jquery-cookie-master/src/jquery.cookie.js"></script
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-            <script src="/JS/menu.js"></script>
+            <script src="/public/JS/menu.js"></script>
         {% endblock %}
     </head>
     <body>
         {{ include ('partials/menu.html.twig')}}
         <menu class="topbar">
-            <h2><a class="title" href="{{ '/' }}"><img src="/img/mangaShadowLogoIco.png" alt="Manga Shadow Logo"> MangaShadow</a></h2>
+            <h2><a class="title" href="{{ '/public/' }}"><img src="/public/img/mangaShadowLogoIco.png" alt="Manga Shadow Logo"> MangaShadow</a></h2>
         </menu>
         <div class="body">
         {% block body %}
